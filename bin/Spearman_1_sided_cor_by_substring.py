@@ -32,10 +32,10 @@ for k in w_unique_motif.keys():
     outfile.write(','.join(fraction_list)+'\t')
     fraction_list=[str(j) for j in fraction_list]
     round_this_list=[str(j) for j in round_list]
-    cmd='Rscript'+'\t'+scriptPath+'/Spearman_1_sided_P_value.R'+'\t'+','.join(fraction_list)+'\t'+','.join(round_this_list)
+    cmd='python'+'\t'+scriptPath+'/Spearman_1_sided_P_value.py'+'\t'+','.join(fraction_list)+'\t'+','.join(round_this_list)
     proc = subprocess.run(cmd, shell=True, capture_output=True, text=True)
     P_value=proc.stdout.strip()
-    cmd='Rscript'+'\t'+scriptPath+'/from_P_value_to_Z_Score_command.R'+'\t'+str(P_value)
+    cmd='python'+'\t'+scriptPath+'/from_P_value_to_Z_Score_command.py'+'\t'+str(P_value)
     proc = subprocess.run(cmd, shell=True, capture_output=True, text=True)
     Z_Score=proc.stdout.strip()
     outfile.write(str(P_value)+'\t'+str(Z_Score)+'\n')
