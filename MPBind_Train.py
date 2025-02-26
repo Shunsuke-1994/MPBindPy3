@@ -114,7 +114,7 @@ def Function_Checking_Running_Status(returncode, output):
 ########################## Generate Unique Reads ####################
 print('Reads preparing  ...')
 
-cmd = 'mkdir ' + w_parameter['-Out']
+cmd = 'mkdir -p ' + w_parameter['-Out']
 process = subprocess.run(cmd, shell=True, capture_output=True, text=True)
 returncode = process.returncode
 output = process.stdout + process.stderr
@@ -142,7 +142,7 @@ for i in redundant_file_list:
     unique_file_list.append(w_parameter['-Out']+'/Unique_Reads/'+i.split('/')[-1].split('.txt')[0]+'.unique')   # i.split('.txt')[0] -> i.split('/')[-1].split('.txt')[0]
 
 if(w_parameter['-U'] == '1'):
-    cmd = 'mkdir'+'\t'+w_parameter['-Out']+'/Unique_Reads'
+    cmd = 'mkdir -p ' + w_parameter['-Out']+'/Unique_Reads'
     process = subprocess.run(cmd, shell=True, capture_output=True, text=True)
     function_Run_time(start_time)
     Function_Checking_Running_Status(process.returncode, process.stdout + process.stderr)
@@ -162,7 +162,7 @@ if(w_parameter['-U'] == '1'):
         else:
             pass
 elif(w_parameter['-U'] == '2'):
-    cmd = 'mkdir'+'\t'+w_parameter['-Out']+'/Redundant_Reads'
+    cmd = 'mkdir -p ' + w_parameter['-Out']+'/Redundant_Reads'
     process = subprocess.run(cmd, shell=True, capture_output=True, text=True)
     function_Run_time(start_time)
     Function_Checking_Running_Status(process.returncode, process.stdout + process.stderr)

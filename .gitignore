@@ -8,7 +8,7 @@ __pycache__/
 
 # unnecessary files
 .DS_Store
-./example
+example/
 
 # Distribution / packaging
 .Python
