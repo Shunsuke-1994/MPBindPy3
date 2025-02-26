@@ -67,8 +67,8 @@ def function_SELEX_Vs_Control_Fisher_1_sided(SELEX_file, Control_file, Outfile_n
             Substring_b2 = w_motif_Control[k][1]
             # Rスクリプト実行（Fisherの1-sidedテスト）
             cmd = ' '.join([
-                "Rscript",
-                os.path.join(scriptPath, "Fisher_test_1_sided.R"),
+                "python",
+                os.path.join(scriptPath, "Fisher_test_1_sided.py"),
                 str(Substring_a1),
                 str(Substring_a2),
                 str(Substring_b1),
@@ -79,8 +79,8 @@ def function_SELEX_Vs_Control_Fisher_1_sided(SELEX_file, Control_file, Outfile_n
             
             # P値からZスコアへの変換
             cmd = ' '.join([
-                "Rscript",
-                os.path.join(scriptPath, "from_P_value_to_Z_Score_command.R"),
+                "python",
+                os.path.join(scriptPath, "from_P_value_to_Z_Score_command.py"),
                 str(Substring_P_value)
             ])
             proc = subprocess.run(cmd, shell=True, capture_output=True, text=True)
@@ -93,8 +93,8 @@ def function_SELEX_Vs_Control_Fisher_1_sided(SELEX_file, Control_file, Outfile_n
             Seq_b2 = w_motif_Control[k][4]
             # Rスクリプト実行（Fisherの1-sidedテスト）
             cmd = ' '.join([
-                "Rscript",
-                os.path.join(scriptPath, "Fisher_test_1_sided.R"),
+                "python",
+                os.path.join(scriptPath, "Fisher_test_1_sided.py"),
                 str(Seq_a1),
                 str(Seq_a2),
                 str(Seq_b1),
@@ -105,8 +105,8 @@ def function_SELEX_Vs_Control_Fisher_1_sided(SELEX_file, Control_file, Outfile_n
             
             # P値からZスコアへの変換
             cmd = ' '.join([
-                "Rscript",
-                os.path.join(scriptPath, "from_P_value_to_Z_Score_command.R"),
+                "python",
+                os.path.join(scriptPath, "from_P_value_to_Z_Score_command.py"),
                 str(Seq_P_value)
             ])
             proc = subprocess.run(cmd, shell=True, capture_output=True, text=True)
